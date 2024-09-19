@@ -1,14 +1,15 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from sentence_transformers import SentenceTransformer, util
 
 app = Flask(__name__)
-CORS(app) 
+CORS(app, resources={r"/*": {"origins": "*"}})
 ''
 # Load the model
 model = SentenceTransformer('sentence-transformers/msmarco-distilbert-base-tas-b')
 
 @app.route('/query', methods=['POST'])
+@cross_origin() # allow all origins all methods.
 def query_documents():
     # Get data from the request
     data = request.get_json()
