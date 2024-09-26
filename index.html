@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Animation Name Changer</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+        #input {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 5px;
+        }
+        img{
+            width: 15px;
+        }
+        #audioElement{
+            height: 15px;
+        }
+        
+    </style>
+</head>
+<body>
+    <form action="" method="post" id="form" autocomplete="on">
+        <input type="text" value="" id="text-bar" placeholder="Instructions">
+        <button id="audio-instruction"><img src="mic.svg" alt="mic"></button>
+        <audio id="audioElement" controls></audio>
+        <button id="stop-recording"><img src="off.svg" alt="stop"></button>
+        <input type="range" id="zoom-slider" min="1" max="10" value="5" step="1">
+        <input type="submit" value="instruct">
+    </form>
+    <div id="transcript"></div>
+    <button id="start-animation">Start Animation</button>
+    <button id="stop-animation">Stop Animation</button>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
